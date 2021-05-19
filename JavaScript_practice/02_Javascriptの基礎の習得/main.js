@@ -39,10 +39,32 @@ console.log(dec);
 console.log(typeof MyName);
 console.log(typeof num);
 console.log(typeof dec);
-変数に型違いが編入出来てしまう
+// 変数に型違いが編入出来てしまう
 MyName = 456;
 console.log(MyName);
 console.log(typeof MyName);
 
 // JavaScript=動的型付け言語
+
+// 演算子
+let ans = 1 + 2;
+console.log(ans);
+let i = 20;
+let j = 10;
+let ans1 = i + j;
+console.log(ans1);
+let ans2 = i - j;
+console.log(ans2);
+let ans3 = i * j;
+console.log(ans3);
+let x = 3;
+let y = 2;
+let ans5 = x / y;
+console.log(ans5);
+let ans6 = Math.pow(x, y);
+console.log(ans5);
+let ans7 = x ** y;
+console.log(ans7);
+
+
 
