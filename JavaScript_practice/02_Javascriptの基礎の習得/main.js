@@ -67,4 +67,28 @@ let ans7 = x ** y;
 console.log(ans7);
 
 
+let lastName = 'あああ';
+let firstName = 'いいいい';
+let massage1 = 'こんにちは' + lastName + ' ' + firstName;
+console.log(massage1);
 
+let message2 = `こんにちは ${lastName} ${firstName}
+Javascriptの学習`;
+console.log(message2);
+
+let num20 = 20;
+num = num20 + 10;
+console.log(num);
+
+let num30 = 20;
+num30 += 10;
+console.log(num30);
+
+let num31 = 20;
+num31 -= 10;
+console.log(num31);
+
+let weghit = 60;
+let tall = 1.7;
+let BMI = weghit / (tall * tall);
+console.log(BMI);
