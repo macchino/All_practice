@@ -92,3 +92,20 @@ let weghit = 60;
 let tall = 1.7;
 let BMI = weghit / (tall * tall);
 console.log(BMI);
+
+let num40 = 10;
+num40++;
+console.log(num40);
+
+let num41 = 11;
+let num42 = 11;
+let ans41 = ++num41;
+let ans42 = num42++;
+console.log(ans41);
+console.log(ans42);
+
+
+let temp = 29;
+if (temp > 28) {
+    console.log('冷房稼働');
+    }
