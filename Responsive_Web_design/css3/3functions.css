@@ -1,0 +1,73 @@
+/* .div1 h1 {
+    color: red;
+} */
+.header1 {
+    color: red;
+    transition: all .5s;
+}
+
+.header1:hover {
+    color: indigo;
+    transition: all .5s;
+    border: 2px solid red;
+    background-color: lightyellow;
+}
+
+.btn_1 {
+    color: linen;
+    font-size: 40px;
+    background-color: black;
+    border: none;
+
+}
+
+.btn_1:hover {
+    color: black;
+    background-color: blanchedalmond;
+    font-size: 100px;
+    border: 5px solid red;
+
+    transition: all .5s;
+}
+
+.header2 {
+    color: green;
+    background-color: magenta;
+    border: 5px solid blanchedalmond;
+}
+
+.header2:active {
+    color: blanchedalmond;
+    background-color: red;
+    border-radius: 50%;
+    border: none;
+    transition: all .5s;
+}
+
+.btn_2:active {
+    color: midnightblue;
+    background-color: olive;
+    font-size: 50px;
+}
+
+
+.header3 {
+    width: 50vh;
+    font-size: 40px;
+    color: red;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border: 5px solid red;
+    box-shadow: 5px 18px 15px  black;
+}
+.btn_3 {
+    background-color: black
+    ;
+    font-size: 50px;
+    color: blanchedalmond;
+    width: 50%;
+
+}
+.btn_3:hover {
+    box-shadow: 5px 8px 5px 5px red;
+}

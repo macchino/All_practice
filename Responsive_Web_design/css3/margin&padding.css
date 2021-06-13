@@ -1,0 +1,21 @@
+.red {
+    background-color: lightgreen;
+    border: 5px solid red;
+    margin-bottom: 20px;
+    margin-top: 50px;
+    /* padding-left: 20px;
+    padding-top: 35px;
+    padding-bottom: 20px;
+    padding-right: 50px; */
+    padding: 30px;
+}
+
+.blue {
+    background-color: black;
+    color: seashell;
+    border: 5px solid orange;
+    margin-top: 10px;
+    margin-right: 10%;
+    margin-left: 25%;
+    padding: 50px;
+}
