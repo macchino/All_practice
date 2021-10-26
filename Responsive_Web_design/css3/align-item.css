@@ -1,0 +1,54 @@
+.flexbox {
+    height: 300px;
+    display: flex;
+    border: 2px solid olive;
+    margin-bottom: 2em;
+}
+.item {
+    padding: 2em;
+    background: olive;
+    color: #ece69c;
+    border: 2px solid black;
+}
+.item-A {
+}
+
+.item-B {
+}
+.item-C {
+}
+.item h2 {
+    font-size: 3em;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 50px;
+    margin-bottom: 1em;
+}
+.flexbox-start {
+    align-items: flex-start;
+}
+.flexbox-start .item-A {
+    align-self: stretch;
+}
+.flexbox-end {
+align-items: flex-end;
+}
+.flexbox-end .item-A {
+    align-self: flex-start;
+}
+.flexbox-stretch {
+    align-items: stretch;
+}
+.flexbox-cente {
+    align-items: center;
+}
+.flexbox-center {
+    align-items: center;
+}
+.flexbox-base {
+align-items: baseline;
+}

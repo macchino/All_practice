@@ -1,0 +1,40 @@
+.transform {
+    padding: 5rem;
+    background-color: orangered;
+    width: 50%;
+    transform: translate(40px, 50px);
+}
+
+.rotate {
+    padding: 5rem;
+    background-color: orange;
+    margin-top: 80px;
+    margin-bottom: 20px;
+    width: 50%;
+    transform: rotate(300deg);
+}
+
+.skew {
+    padding: 5rem;
+    background-color: slateblue;
+    margin-top: 80px;
+    margin-bottom: 20px;
+    width: 50%;
+    transform: skew(10deg);
+}
+.scale {
+     padding: 5rem;
+     background-color: tomato;
+     margin-top: 80px;
+     margin-bottom: 20px;
+     width: 50%;
+     transform: scale(1.2);
+}
+.all {
+    padding: 5rem;
+    background-color: violet;
+    margin-top: 200px;
+    margin-bottom: 20px;
+    width: 50%;
+    transform: translate(40px, 50px) scale(1.1) skew(10deg) rotate(40deg);
+}

@@ -1,0 +1,22 @@
+.changecolor h1 {
+color: hotpink;
+background-color: olivedrab;
+}
+@media (min-width: 576px) and (max-width: 767.98px){
+    .changecolor h1 {
+        color: yellowgreen;
+        background-color: orangered;
+    }
+}
+@media (min-width: 768px) and (max-width: 992px){
+    .changecolor h1 {
+        color: blueviolet;
+        background-color: blue;
+    }
+}
+@media (min-width: 992px) and (max-width: 1200px){
+    .changecolor h1 {
+        color: aquamarine;
+        background-color: red;
+    }
+}

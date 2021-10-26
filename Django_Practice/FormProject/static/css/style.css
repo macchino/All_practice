@@ -1,0 +1,138 @@
+/* stylesheet */
+@charset "UTF-8";
+
+/* A Modern CSS Reset */
+*,*::before,*::after{box-sizing:border-box}body,h1,h2,h3,h4,p,figure,blockquote,dl,dd{margin:0}ul[role="list"],ol[role="list"]{list-style:none}html:focus-within{scroll-behavior:smooth}body{min-height:100vh;text-rendering:optimizeSpeed;line-height:1.5}a:not([class]){text-decoration-skip-ink:auto}img,picture{max-width:100%;display:block}input,button,textarea,select{font:inherit}@media(prefers-reduced-motion:reduce){html:focus-within{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+
+
+/*------------------------------------------------------
+ Base (Mobile First)
+------------------------------------------------------*/
+body{
+  color: #333;
+  width: 100%;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', '游ゴシック  Medium', meiryo, sans-serif;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.17em;
+}
+
+h4 {
+  font-size: 1.12em;
+}
+
+h5 {
+  font-size: .83em;
+}
+
+h6 {
+  font-size: .75em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+img{
+  width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+/* clearfix */
+.clearfix::before,
+.clearfix::after {
+  content: " ";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.clearfix {
+  *zoom: 1;
+}
+
+/* header
+================================================ */
+.mail_class {
+    width: 70%;
+    color: blue;
+}
+
+label[for="id_mail"] {
+     color: red;
+}
+
+#id_job {
+    list-style: none;
+
+}
+
+.hobbies_class {
+    list-style: none;
+}
+.formName {
+    display: inline-block;
+    background-color: red;
+}
+.formErrors {
+    color: yellow;
+}
+
+/* contents
+================================================ */
+
+
+/* footer
+================================================ */
+
+
+/*------------------------------------------------------
+ Mobile
+------------------------------------------------------*/
+@media screen and (max-width:767px) {
+
+  /* contents
+  ================================================ */
+
+}
+
+
+/*------------------------------------------------------
+ Tablet ~
+------------------------------------------------------*/
+@media screen and (min-width:768px) {
+
+  /* contents
+  ================================================ */
+
+}
+
+
+/*------------------------------------------------------
+ PC
+------------------------------------------------------*/
+@media screen and (min-width:920px) {
+
+  /* contents
+  ================================================ */
+
+}

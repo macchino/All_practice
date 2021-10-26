@@ -1,0 +1,35 @@
+
+
+$brown: saddlebrown;
+$headerheight: 80px;
+$borderStyle: 3px solid #555;
+
+.test {
+    color: $brown;
+    border: $borderStyle;
+    li {
+        border: 1px solid $brown;
+        p {
+            background-color: $brown;
+        }
+    };
+}
+
+a {
+    color: $brown;
+}
+
+header {
+    height: $headerheight - 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border-bottom: $borderStyle;
+}
+
+main {
+    margin-top: $headerheight;
+    padding: 20px;
+}

@@ -1,0 +1,166 @@
+.row {
+    display: flex;
+flex-wrap: wrap;
+}
+.col-6 {
+    width: 50%;
+margin-top: 15px;
+/* border: 5px solid red; */
+
+}
+.col-1 {
+    width: 8.3333333333%;
+    margin-top: 15px;
+    /* border: 5px solid red; */
+
+}
+.col-2 {
+    width: 16.666666667%;
+    margin-top: 15px;
+    /* border: 5px solid red; */
+
+}
+.col-3 {
+    width: 25%;
+    margin-top: 15px;
+    /* border: 5px solid red; */
+
+}
+.col-4 {
+    width: 33.333333334%;
+    margin-top: 15px;
+    border: 5px solid red;
+
+}
+.col-5 {
+    width: 41.6666667%;
+    margin-top: 15px;
+    /* border: 5px solid red; */
+
+}
+.col-7 {
+    width: 58.33333333%;
+    margin-top: 15px;
+    /* border: 5px solid red; */
+
+}
+.col-8 {
+    width: 66.66666666666666%;
+    margin-top: 15px;
+    /* border: 5px solid red; */
+
+}
+.col-9 {
+    width: 75%;
+    margin-top: 15px;
+    /* border: 5px solid red; */
+
+}
+.col-10 {
+    width: 83.33333333333%;
+    margin-top: 15px;
+    /* border: 5px solid red; */
+
+}
+.col-11 {
+    width: 91.6666666666%;
+    margin-top: 15px;
+    /* border: 5px solid red; */
+
+}
+.col-12 {
+    width: 100%;
+    margin-top: 15px;
+    /* border: 5px solid red; */
+
+}
+@media (min-width: 567px) and (max-width: 767.98px){
+    .col-sm-1 {
+        width: 8.3333333333%;
+    }
+    .col-sm-2 {
+    width: 16.666666667%;
+    }
+    .col-sm-3 {
+    margin-top: 15px;
+    }
+
+    .col-sm-4 {
+    width: 33.333333334%;
+    }
+
+    .col-sm-5 {
+    width: 41.6666667%;
+    }
+
+    .col-sm-6 {
+        background-color: orangered;
+    }
+
+    .col-sm-7 {
+    width: 58.33333333%;
+    }
+
+    .col-sm-8 {
+    width: 66.66666666666666%;
+    }
+
+    .col-sm-9 {
+    width: 75%;
+    }
+
+    .col-sm-10 {
+    width: 83.33333333333%;
+    }
+
+    .col-sm-11 {
+    width: 91.6666666666%;
+    }
+
+    .col-sm-12 {
+    width: 100%;
+    }
+}
+
+.col-sm-1, .col-1 {
+    background-color: skyblue;
+}
+.col-sm-2, .col-2 {
+    background-color: chocolate;
+}
+.col-sm-3, .col-3 {
+    background-color: azure;
+}
+.col-sm-4, .col-4 {
+    background-color: purple;
+}
+.col-sm-5, .col-5{
+    background-color: pink;
+}
+.col-sm-6, .col-6 {
+    background-color: orangered;
+}
+.col-sm-7, .col-7 {
+    background-color: blue;
+}
+.col-sm-8, .col-8 {
+    background-color: olive;
+}
+.col-sm-9, .col-9 {
+    background-color: royalblue;
+}
+.col-sm-10, .col-10 {
+    background-color: goldenrod;
+}
+.col-sm-11, .col-11{
+    background-color: green;
+}
+.col-sm-12, .col-12{
+    background-color: gainsboro;
+}
+.mt-4 {
+    margin-top: 4rem;
+}
+.mb-4 {
+    margin-bottom: 4rem;
+}

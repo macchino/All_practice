@@ -1,0 +1,39 @@
+*,
+body {
+    margin: 0;
+    padding: 0;
+}
+body {
+    height: 200vh;
+}
+
+.fixed {
+    color: black;
+    background-color: chartreuse;
+    position: fixed;
+    width: 100%;
+}
+.absolute {
+    color: cornsilk;
+    background-color: crimson;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.relative {
+    width: 200px;
+    color: cyan;
+    background-color: darkgoldenrod;
+    border: 5px solid pink;
+    position: relative;
+    top: 100px;
+    left: 50%;
+}
+.sticky {
+    color: royalblue;
+    background-color: silver;
+    border: 5px solid pink;
+    position: sticky;
+    top: 50px;
+}

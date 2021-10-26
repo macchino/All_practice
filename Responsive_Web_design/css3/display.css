@@ -1,0 +1,15 @@
+li {
+    display: inline;
+}
+span {
+    display: block;
+}
+.flex {
+    display: flex;
+    flex-wrap: nowrap;
+}
+.none {
+    padding: 4rem;
+    background-color: red;
+    display: none;visibility: hidden;
+}
