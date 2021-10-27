@@ -32,13 +32,14 @@ admin.site.register(User, CustomizeUserAdmin)
 
 @admin.register(Students)
 class StudentAdmin(admin.ModelAdmin):
-    
+
     fields = ('name', 'score', 'age', 'school')
     list_display = ('id', 'name', 'age', 'score', 'school')
     list_display_links = ('id',)
     search_fields = ('name', 'age')
     list_filter = ('name', 'age', 'score', 'school')
     list_editable = ('name', 'age', 'score', 'school')
+
 
 
 @admin.register(Schools)
@@ -50,5 +51,5 @@ class SchoolsAdmin(admin.ModelAdmin):
         # print(dir(obj))
         count = obj.students_set.count()
         return count
-    
+
     student_count.short_description = '生徒数'

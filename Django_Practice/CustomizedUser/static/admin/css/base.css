@@ -20,7 +20,7 @@ body {
 /* LINKS */
 
 a:link, a:visited {
-    color: red;
+    color: goldenrod;
     text-decoration: none;
 }
 
@@ -809,7 +809,7 @@ table#change-history tbody th {
     justify-content: space-between;
     align-items: center;
     padding: 10px 40px;
-    background: #417690;
+    background: olive;
     color: #ffc;
     overflow: hidden;
 }

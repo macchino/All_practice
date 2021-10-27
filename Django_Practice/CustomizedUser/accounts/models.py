@@ -16,7 +16,7 @@ class UserManager(BaseUserManager):
         user.set_password(password)
         user.save(using=self._db)
         return user
-    
+
     def create_superuser(self, username, email, password=None):
         user = self.model(
             username=username,
@@ -32,8 +32,8 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=150)
     email = models.EmailField(max_length=255, unique=True)
-    is_active = models.BooleanField(default=False)
-    is_staff = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=False,  verbose_name='ログイン状態')
+    is_staff = models.BooleanField(default=False, verbose_name='スタッフ権限')
     website = models.URLField(null=True)
     picture = models.FileField(null=True)
 
@@ -54,7 +54,7 @@ class Students(models.Model):
     school = models.ForeignKey(
         'Schools', on_delete=models.CASCADE
     )
-    
+
     class Meta:
         db_table = 'students'
         verbose_name_plural = '生徒'
@@ -65,10 +65,10 @@ class Students(models.Model):
 
 class Schools(models.Model):
     name = models.CharField(max_length=20, verbose_name='学校名')
-    
+
     class Meta:
         db_table = 'schools'
         verbose_name_plural = '学校'
-    
+
     def __str__(self):
         return  self.name
