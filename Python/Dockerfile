@@ -41,11 +41,11 @@ RUN pip install --upgrade pip &&\
 RUN jupyter labextension install @lckr/jupyterlab_variableinspector
 
 # 自動整形
-# RUN pip install autopep8 \
+RUN pip install autopep8 \
+    && jupyter labextension install jupyterlab-theme-solarized-dark
 #     && pip install jupyterlab_code_formatter \
 #     && jupyter labextension install @ryantam626/jupyterlab_code_formatter \
 #     && jupyter serverextension enable --py jupyterlab_code_formatter \
-#     && jupyter labextension install jupyterlab-theme-solarized-dark
 
 WORKDIR /
 
