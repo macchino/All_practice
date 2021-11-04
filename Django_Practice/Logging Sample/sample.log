@@ -1,0 +1,9 @@
+2021-11-04 08:48:13,601-2840-WARNING-warning.log
+2021-11-04 08:48:13,602-2840-ERROR-error.log
+2021-11-04 08:48:13,602-2840-CRITICAL-critical.log
+2021-11-04 08:48:13,602-2840-ERROR-user = Taro raised error
+2021-11-04 08:48:13,602-2840-ERROR-division by zero
+Traceback (most recent call last):
+  File "c:\Users\DELL\Work\All_practice\Django_Practice\Logging Sample\01_logging_sample.py", line 21, in <module>
+    c = a /b
+ZeroDivisionError: division by zero

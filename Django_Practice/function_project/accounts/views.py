@@ -6,6 +6,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import update_session_auth_hash
+from django.http import Http404
+
 
 
 def home(request):
@@ -90,4 +92,10 @@ def change_password(request):
         request, 'accounts/change_password.html', context={
             'password_change_form': password_change_form,
         }
+    )
+
+
+def show_error_page(request, exception):
+    return render(
+        request, '404.html'
     )
