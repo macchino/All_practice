@@ -44,7 +44,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'ClassBasedLoginView.urls'
+ROOT_URLCONF = 'ecsite_project.urls'
 
 TEMPLATES = [
     {
@@ -62,7 +62,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'ClassBasedLoginView.wsgi.application'
+WSGI_APPLICATION = 'ecsite_project.wsgi.application'
 
 
 # Database
