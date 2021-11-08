@@ -9,13 +9,13 @@ from django.views.generic.edit import (
     UpdateView, DeleteView, CreateView
 )
 from django.urls import reverse_lazy
-from django.core.cache import cache
+
 import os
 from .models import(
-    Addresses, Products, Carts, CartItems
+    Products, Carts, CartItems
 )
 from .forms import(
-    CartUpdateForm, AddressInputForm
+    CartUpdateForm,
 )
 
 class ProductListView(LoginRequiredMixin, ListView):
@@ -129,59 +129,3 @@ class CartDeleteView(LoginRequiredMixin, DeleteView):
     template_name = os.path.join('stores', 'delete_cart.html')
     model = CartItems
     success_url = reverse_lazy('stores:cart_items')
-
-
-class InputAddressView(LoginRequiredMixin, CreateView):
-    template_name = os.path.join('stores', 'input_address.html')
-    form_class = AddressInputForm
-    success_url = reverse_lazy('stores:cart_items')
-
-    def get(self, request, pk=None):
-        cart = get_object_or_404(Carts, user_id=request.user.id)
-        if not cart.cartitems_set.all():
-            raise Http404('商品が入っていません')
-        return super().get(request, pk)
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        address = cache.get(f'address_user_{self.request.user.id}')
-        pk = self.kwargs.get('pk')
-        address = get_object_or_404(Addresses, user_id=self.request.user.id, pk=pk) if pk else address
-        if address:
-            context['form'].fields['zip_code'].initial = address.zip_code
-            context['form'].fields['prefecture'].initial = address.prefecture
-            context['form'].fields['address'].initial = address.address
-        context['addresses'] = Addresses.objects.filter(user=self.request.user).all()
-        return context
-
-    def form_valid(self, form):
-        form.user = self.request.user
-        return super().form_valid(form)
-
-
-class ConfirmOrderView(LoginRequiredMixin, TemplateView):
-    template_name = os.path.join('stores', 'confirm_order.html')
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        address = cache.get(f'address_user_{self.request.user.id}')
-        context['address'] = address
-        cart = get_object_or_404(Carts, user_id=self.request.user.id)
-        context['cart'] = cart
-        total_price = 0
-        items = []
-        for item in cart.cartitems_set.all():
-            total_price += item.quantity * item.product.price
-            picture = item.product.productpictures_set.first()
-            picture = picture.picture if picture else None
-            tmp_item = {
-                'quantity': item.quantity,
-                'picture': picture,
-                'name': item.product.name,
-                'price': item.product.price,
-                'id': item.id,
-            }
-            items.append(tmp_item)
-        context['total_price'] = total_price
-        context['items'] = items
-        return context
