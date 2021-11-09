@@ -1,5 +1,4 @@
 from django.db import models
-from django.db.models.fields import CharField
 from accounts.models import Users
 
 
@@ -18,9 +17,18 @@ class Manufacturers(models.Model):
 
     class Meta:
         db_table = 'manufacturers'
-
+    
     def __str__(self):
         return self.name
+
+
+class ProductsManager(models.Manager):
+
+    def reduce_stock(self, cart):
+        for item in cart.cartitems_set.all():
+            update_stock = item.product.stock - item.quantity
+            item.product.stock = update_stock
+            item.product.save()
 
 
 class Products(models.Model):
@@ -33,10 +41,11 @@ class Products(models.Model):
     manufacturer = models.ForeignKey(
         Manufacturers, on_delete=models.CASCADE
     )
+    objects = ProductsManager()
 
     class Meta:
         db_table = 'products'
-
+    
     def __str__(self):
         return self.name
 
@@ -51,7 +60,7 @@ class ProductPictures(models.Model):
     class Meta:
         db_table = 'product_pictures'
         ordering = ['order']
-
+    
     def __str__(self):
         return self.product.name + ': ' + str(self.order)
 
@@ -94,7 +103,7 @@ class Addresses(models.Model):
     address = models.CharField(max_length=200)
     user = models.ForeignKey(
         Users,
-        on_delete=models.CASCADE,
+        on_delete = models.CASCADE,
     )
 
     class Meta:
@@ -102,10 +111,19 @@ class Addresses(models.Model):
         unique_together = [
             ['zip_code', 'prefecture', 'address', 'user']
         ]
-
+    
     def __str__(self):
         return f'{self.zip_code} {self.prefecture} {self.address}'
 
+
+class OrdersManager(models.Manager):
+
+    def insert_cart(self, cart: Carts, address, total_price):
+        return self.create(
+            total_price=total_price,
+            address=address,
+            user=cart.user
+        )
 
 class Orders(models.Model):
     total_price = models.PositiveIntegerField()
@@ -113,18 +131,29 @@ class Orders(models.Model):
         Addresses,
         on_delete=models.SET_NULL,
         blank=True,
-        null = True,
+        null=True,
     )
     user = models.ForeignKey(
         Users,
         on_delete=models.SET_NULL,
-        blank = True,
-        null = True
+        blank=True,
+        null=True,
     )
-
+    objects = OrdersManager()
+    
     class Meta:
         db_table = 'orders'
 
+
+class OrderItemsManager(models.Manager):
+
+    def insert_cart_items(self, cart, order):
+        for item in cart.cartitems_set.all():
+            self.create(
+                quantity=item.quantity,
+                product=item.product,
+                order=order
+            )
 
 class OrderItems(models.Model):
     quantity = models.PositiveIntegerField()
@@ -135,10 +164,10 @@ class OrderItems(models.Model):
         null=True,
     )
     order = models.ForeignKey(
-        Orders,
-        on_delete=models.CASCADE,
+        Orders, on_delete=models.CASCADE
     )
-
+    objects = OrderItemsManager()
+    
     class Meta:
         db_table = 'order_items'
         unique_together = [['product', 'order']]

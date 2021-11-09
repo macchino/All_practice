@@ -12,7 +12,7 @@ class CartUpdateForm(forms.ModelForm):
     class Meta:
         model = CartItems
         fields = ['quantity', 'id']
-    
+
     def clean(self):
         cleaned_data = super().clean()
         quantity = cleaned_data.get('quantity')
@@ -40,6 +40,12 @@ class AddressInputForm(forms.ModelForm):
             address.validate_unique()
             address.save()
         except ValidationError as e:
+            address = get_object_or_404(
+                Addresses, user=self.user,
+                prefecture=address.prefecture,
+                zip_code=address.zip_code,
+                address=address.address
+            )
             pass
         cache.set(f'address_user_{self.user.id}', address)
         return address
