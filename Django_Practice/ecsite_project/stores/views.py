@@ -103,7 +103,7 @@ class CartItemsView(LoginRequiredMixin, TemplateView):
         total_price = 0
         items = []
         for item in query.all():
-            total_price += item.quantity * item.product.price
+            total_price += int((item.quantity * item.product.price) / 10 + (item.quantity * item.product.price))
             picture = item.product.productpictures_set.first()
             picture = picture.picture if picture else None
             in_stock = True if item.product.stock >= item.quantity else False
@@ -174,7 +174,7 @@ class ConfirmOrderView(LoginRequiredMixin, TemplateView):
         total_price = 0
         items = []
         for item in cart.cartitems_set.all():
-            total_price += item.quantity * item.product.price
+            total_price += int((item.quantity * item.product.price) / 10 + (item.quantity * item.product.price))
             picture = item.product.productpictures_set.first()
             picture = picture.picture if picture else None
             tmp_item = {
@@ -188,7 +188,7 @@ class ConfirmOrderView(LoginRequiredMixin, TemplateView):
         context['total_price'] = total_price
         context['items'] = items
         return context
-    
+
     @transaction.atomic
     def post(self, request, *args, **kwargs):
         context = self.get_context_data()
