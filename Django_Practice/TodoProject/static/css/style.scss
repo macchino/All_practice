@@ -1,0 +1,27 @@
+@charset "utf-8";
+
+*li{
+    color:red;
+}
+.item {
+    li {
+        display: block;
+        width: 60%;
+        margin: 2px;
+        background: rgb(226, 217, 217);
+    }
+    .bt1 {
+        margin-right: 3px;
+        background:orange;
+        border-radius: 5px;
+    }
+    .bt2 {
+        margin-right: 3px;
+        background: olivedrab;
+        border-radius: 5px;
+    }
+    .bt3 {
+        margin-right: 3px;
+        background: skyblue;
+        border-radius: 5px;
+    }}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load static %}
+{% comment %}
+DetailViewはいきなり{{ object.title}}で取り出せる
+{% endcomment %}
+
+{% block content %}
+    {{ object.title}}
+    {{ object.memo}}
+{% endblock content %}

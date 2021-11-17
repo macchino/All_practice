@@ -1,0 +1,4 @@
+Django==3.2.9
+django-environ-2
+django-shortcuts==1.6
+stripe

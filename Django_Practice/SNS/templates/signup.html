@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+ <body class="text-center">
+
+<main class="form-signin">
+  <form method="POST" action="">{% csrf_token %}
+    <img src="{% static 'img/bootstrap-logo.svg' %}" alt="" width="72" height="57">
+    <h1 >Please sign up</h1>
+{% if error %}
+{{ error }}
+{% endif %}
+    <div >
+      <input type="text"  id="floatingInput" placeholder="username" name='username'>
+      <label for="floatingInput">Email address</label>
+    </div>
+    <div class="form-floating">
+      <input type="password"  id="floatingPassword" placeholder="password" name="password">
+      <label for="floatingPassword">Password</label>
+    </div>
+
+
+    <button  type="submit">Sign up</button>
+    <p >&copy; 2017–2021</p>
+  </form>
+</main>
+
+
+
+  </body>
+{% endblock content %}

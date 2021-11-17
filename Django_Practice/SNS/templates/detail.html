@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block header %}
+<h1>個別投稿</h1>
+{% endblock header %}
+{% block content %}
+<div><h2>
+タイトル:{{ object.title }}
+</h2>
+<p>
+投稿者:{{ object.author }}
+    </p>
+    <p>
+内容:{{ object.content }}
+    </p>
+    <p><img src="{{ object.images.url }}" alt=""></p>
+<a href="{% url 'good' object.pk %}"><button>いいねする:
+</button></a>
+<a href="{% url 'read' object.pk %}"> <button>既読にする:
+</button></a>
+</div>
+{% endblock content %}

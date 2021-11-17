@@ -1,0 +1,26 @@
+* li {
+  color: red;
+}
+
+.item li {
+  display: block;
+  width: 60%;
+  margin: 2px;
+  background: #e2d9d9;
+}
+.item .bt1 {
+  margin-right: 3px;
+  background: orange;
+  border-radius: 5px;
+}
+.item .bt2 {
+  margin-right: 3px;
+  background: olivedrab;
+  border-radius: 5px;
+}
+.item .bt3 {
+  margin-right: 3px;
+  background: skyblue;
+  border-radius: 5px;
+}
+/*# sourceMappingURL=style.css.map */
