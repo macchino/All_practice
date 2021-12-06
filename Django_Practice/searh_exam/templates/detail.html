@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+{% for item in item_list %}
+
+<ul>
+    <li>
+    名前は{{ item.name }}
+    idは{{ item.pk }}
+    {{ item.stock}}
+
+    </li>
+</ul>
+
+
+{% endfor %}
+{% endblock  %}

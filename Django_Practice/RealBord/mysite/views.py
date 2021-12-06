@@ -1,14 +1,21 @@
+from config import settings
 from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView
-from blog.models import Article #アプリ」のblogで定義したmodelsのArticleをインポート
-from mysite.forms import UserCreationForm
+from blog.models import Article #アプリのblogで定義したmodelsのArticleをインポート
+from mysite.forms import UserCreationForm, ProfileForm
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login
+from django.core.mail import send_mail
+
 
 def index(request):
+    ranks = Article.objects.order_by('-count')[:2]
     objs = Article.objects.all()[:3]  # クラス定義したArticleのモデルの全てのテーブルを取る。[:3]で記事数制限
     return render(request, 'mysite/index.html', context={
         'title': 'Really Site', #単に文字列をcontextに渡して表示
         'articles': objs, #変数objsにモデル全てのテーブルをarticlesに代入して表示
+        'ranks': ranks,
     })
 
 
@@ -31,13 +38,54 @@ def signup(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            user.is_active = False
+            # user.is_active = False
             user.save()
+
+            #loginさせる
+            login(request, user)
+
+
             messages.success(request, '登録完了！！')
             return redirect('/')
     return render(request, 'mysite/auth.html', context)
 
 
+@login_required
 def mypage(request):
     context = {}
+    if request.method == 'POST':
+        form = ProfileForm(request.POST)
+        if form.is_valid():
+            profile = form.save(commit=False)
+            profile.user = request.user
+            profile.save()
+            messages.success(request, '更新完了しましたよ！！')
+
     return render(request, 'mysite/mypage.html', context)
+
+def contact(request):
+    context = {}
+    if request.method == 'POST':
+# --------- Email To Me 送信設定 ---------------------
+        subject = '題名お問い合わせがありました'
+        message = """お問い合わせがありました。\n
+                    名前：{}\n
+                    メールアドレス：{}\n
+                    内容：{})""".format(
+            request.POST.get('name'),
+            request.POST.get('email'),
+            request.POST.get('content')
+            )
+
+        email_from = 'info@opp-studio.tech'
+        recipient_list = ('opp.studio67@gmail.com',)
+        send_mail(
+            subject,
+            message,
+            email_from,
+            recipient_list
+    )
+# --------- Email To Me 送信設定 ---------------------
+        messages.success(request, 'お問い合わせありがとうございます。')
+    return render(request, 'mysite/contact.html', context )
+

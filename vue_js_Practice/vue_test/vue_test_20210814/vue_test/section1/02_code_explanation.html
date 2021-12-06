@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.js"></script>
+
+</head>
+<body>
+
+  <div id="app"> <!-- 仮想DOM-->
+    {{ message }} 
+  </div>
+  
+  <script>
+  //Vueクラス->インスタンス化(実体) new 
+  // let app = new Vue({
+    
+  // });
+  let app = new Vue({
+    el: '#app', // 仮想DOM
+    data(){
+      return {
+        message: 'Hello' //キー(key):値(value)
+      }
+    }
+  })
+  </script>
+</body>
+</html>

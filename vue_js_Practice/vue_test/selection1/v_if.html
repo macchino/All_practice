@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!--仮想DOM -->
+
+    <div v-if="isDisplay">ifで表示</div>
+    <br>
+    <div v-if="signal === 'red'">赤</div>
+    <div v-else-if="signal === 'yellow'">黄</div>
+    <div v-else-if="signal === 'blue'">青</div>
+      <div v-else>赤青黄ではありません</div>
+  </div>
+  <script>
+    let app = new Vue({
+      el: '#app', //仮想DOM
+      data() {
+        return {
+          isDisplay: true,
+          signal: 'red'
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

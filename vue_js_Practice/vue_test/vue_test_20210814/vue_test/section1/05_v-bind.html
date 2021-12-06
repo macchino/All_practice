@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.js"></script>
+
+</head>
+<body>
+  <!-- リアルDOM 
+  JSがつながっているかどうかわからない-->
+  <a id="google_link">googleへのリンク</a>
+
+  <div id="app"> <!-- 仮想DOM-->
+    {{ message }}
+    <!-- <a href="{{ google }}">googleへのリンク</a> こっちはダメ -->
+    <!-- <a v-bind:href="google">googleへのリンク</a> -->
+    <a :href="google">googleへのリンク</a>
+
+  </div>
+  
+  <script>
+  //Vueクラス->インスタンス化(実体) new 
+  // let app = new Vue({
+    
+  // });
+  let app = new Vue({
+    el: '#app', // 仮想DOM
+    data(){ // 初期設定
+      return {
+        message: 'Hello', //キー(key):値(value)
+        google: 'https://google.com'
+      }
+    }
+  })
+
+  //直接DOM操作
+  //idを指定(idが変わればコード変更必要)
+  const googleLink = document.getElementById('google_link');
+  googleLink.href = 'https://google.com';
+
+  </script>
+</body>
+</html>

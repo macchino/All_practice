@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.js"></script>
+  <title>Document</title>
+  <style>
+    .active{
+      border:1px solid red;
+    }
+    .text-danger{
+      color:red;
+    }
+  </style>
+</head>
+<body>
+  リアルDOM
+  <div style="color:blue; font-size:20px">styleテスト</div>
+  <br>
+  <div class="active text-danger">classテスト</div>
+  <br>
+  <div id="app"><!-- 仮想DOM-->
+    <div :style="{fontSize:fontSize}">Styleテスト</div>
+    <!-- <div :style="{'font-ize':fontSize}">Styleテスト</div> ケバブケースで書くなら''で囲む-->
+
+    <div :class="{active:isActive}">classテスト</div>
+
+  </div>
+  
+  <script>
+    let app = new Vue({
+      el: '#app',
+      data(){
+        return {
+          //font-size:'20px' //ケバブケース
+          fontSize: '20px',//キャメルケース
+
+          isActive: true
+         }
+      }
+    })
+  </script>
+</body>
+</html>

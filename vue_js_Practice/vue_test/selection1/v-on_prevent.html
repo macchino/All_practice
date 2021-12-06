@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <!--仮想DOM -->
+    <button @click="btnClocked">クリックしてね</button>
+    <button @click="btnClockedEvent">Eventクリックしてね</button>
+    <button @click="btnClockedArgs(1)">引数クリックしてね</button>
+    <button @click="btnClockedArgsEvent(1, $event)">引数eventクリックしてね</button>
+    <!-- Ajax -->
+    <form>
+      <button type="submit" @click.prevent="doThis">送信</button>
+    </form>
+  </div>
+  <script>
+    let app = new Vue({
+      el: '#app', //仮想DOM
+      data() {
+        return {}
+      },
+      methods: {
+        btnClocked() {
+          console.log('Vue クリックされた')
+        },
+        btnClockedEvent(e) {
+          console.log(e)
+        },
+        btnClockedArgs(int) {
+          console.log(int);
+        },
+        btnClockedArgsEvent(int, e) {
+          console.log(int, e);
+        }
+      },
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <button id="clickEvent" onClick="btnClicked()">クリックしてね</button>
+
+  <div id="app"><!-- 仮想DOM-->
+    <!-- <button v-on:click="btnClicked">クリックしてね</button> -->
+    <button @click="btnClicked">クリックしてね</button>
+    <button @click="btnClickedEvent">Eventクリックしてね</button>
+    <button @click="btnClickedArgs(1)">引数クリックしてね</button>
+    <button @click="btnClickedArgsEvent(1, $event)">引数イベントクリックしてね</button>
+  </div>
+  
+  <script>
+    let app = new Vue({
+      el: '#app',
+      data(){
+        return {
+        }
+      },
+      methods:{
+        btnClicked(){
+          console.log('Vue クリックされた')
+        },
+        btnClickedEvent(e){
+          console.log(e)
+        },
+        btnClickedArgs(int){
+          console.log(int)
+        },
+        btnClickedArgsEvent(int, e){
+          console.log(int, e);
+        }
+      }
+
+    })
+
+
+    function btnClicked(){
+      console.log('JS クリックされた');
+    }
+
+    const clickEvent = document.getElementById('clickEvent');
+    clickEvent.addEventListener('click',(e)=>{
+      console.log(e);
+    })
+  </script>
+</body>
+</html>
